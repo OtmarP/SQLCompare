@@ -55,5 +55,56 @@ namespace SQLCompare
         private void SetContextMenue()
         {
         }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            // Exit
+            this.Close();
+        }
+
+        private void contextMenuStripProject_Opening(object sender, CancelEventArgs e)
+        {
+            //
+        }
+
+        private void contextMenuStripProject_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //
+        }
+
+        private void buttonCompare_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void label1_DoubleClick(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void label2_DoubleClick(object sender, EventArgs e)
+        {
+            //
+        }
+
+        //private void checkBoxColId_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    //
+        //}
+
+        private void checkBoxColId_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void labelFileSrc_DoubleClick(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void labelFileTar_DoubleClick(object sender, EventArgs e)
+        {
+            //
+        }
     }
 }
