@@ -11,6 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution_Items", "Solution_
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{8F8B9A8B-DED3-49D9-A454-9CB6BA00ACBF}"
+	ProjectSection(SolutionItems) = preProject
+		..\img\Bild_20210312_120214_001.png = ..\img\Bild_20210312_120214_001.png
+		..\img\Bild_20210528_094813_001.png = ..\img\Bild_20210528_094813_001.png
+		..\img\Image_20210608_145541_001.png = ..\img\Image_20210608_145541_001.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +31,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F8B9A8B-DED3-49D9-A454-9CB6BA00ACBF} = {8EE0737B-45F9-4867-B0F7-3DC72CEDABF9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {86907E0E-4861-4C0E-B7C7-D0095EDF6626}
