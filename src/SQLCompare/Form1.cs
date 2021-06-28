@@ -50,6 +50,13 @@ namespace SQLCompare
 
             this.Top = 50;
             this.Left = 50;
+
+            this.splitContainer1.Dock = DockStyle.Fill;
+            this.textBox1.Dock = DockStyle.Fill;
+            this.textBox2.Dock = DockStyle.Fill;
+            this.toolStripStatusLabelAction.Text = "";
+            this.labelFileSrc.Text = "";
+            this.labelFileTar.Text = "";
         }
 
         private void SetContextMenue()
