@@ -57,6 +57,13 @@ namespace SQLCompare
             this.toolStripStatusLabelAction.Text = "";
             this.labelFileSrc.Text = "";
             this.labelFileTar.Text = "";
+
+            _project_compair = "XXX";
+            //_project_project = GetFirstToken(_project_compair, "_");
+            //SetProject();
+            //DisplayHeader();
+
+            //...
         }
 
         private void SetContextMenue()
