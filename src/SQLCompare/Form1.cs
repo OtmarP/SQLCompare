@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,8 @@ namespace SQLCompare
 {
     public partial class Form1 : Form
     {
-        private string _project_compair;    // XXX_Kunde
-        private string _project_project;    // XXX
+        private string _project_compair;    // TEST_Kunde
+        private string _project_project;    // TEST
         private string _version;
 
         public Form1()
@@ -58,16 +59,88 @@ namespace SQLCompare
             this.labelFileSrc.Text = "";
             this.labelFileTar.Text = "";
 
-            _project_compair = "XXX";
-            //_project_project = GetFirstToken(_project_compair, "_");
-            //SetProject();
-            //DisplayHeader();
+            _project_compair = "TEST";
+            _project_project = GetFirstToken(_project_compair, "_");
+            SetProject();
+            DisplayHeader();
 
+            this.radioButtonSrcSQL.Checked = true;
+            this.radioButtonTarSQL.Checked = true;
+
+            contextMenuStripProject.Items.Clear();
+            contextMenuStripProject.Items.Add("TEST");
             //...
+            //contextMenuStripProject.Items.Add( "" );
+            SetContextMenue();  // .BackColor = Color.Cyan
+
+            try
+            {
+                this.textBoxSrcConnStr.SelectionLength = -1;
+                this.buttonCompare.Focus();
+            }
+            catch (Exception)
+            {
+                //throw;
+            }
         }
 
         private void SetContextMenue()
         {
+            // Reset Color
+            //...
+        }
+
+        private void DisplayHeader()
+        {
+            string DR = "R";
+#if DEBUG
+            DR = "D";
+#endif
+            this.Text = "SQLCompare Ver.:" + _version + "." + DR + " - " + _project_compair + " - " + _project_project;
+        }
+
+        private void SrcTarSwap()
+        {
+            string Src = this.textBoxSrcConnStr.Text;
+            string Tar = this.textBoxTarConnStr.Text;
+            this.textBoxSrcConnStr.Text = Tar;
+            this.textBoxTarConnStr.Text = Src;
+        }
+
+        private string GetFileName(string type, bool mitColId, bool mit_SP_View)
+        {
+            string fullFileName = "";
+
+            //...
+
+            return fullFileName;
+        }
+
+        private void SetProject()
+        {
+            //...
+
+            DisplayFileInfo();
+        }
+
+        private void DisplayFileInfo()
+        {
+            // Check Files
+            //...
+        }
+
+        private void SetGUI()
+        {
+            // Src
+            //...
+            // Tar
+            //...
+        }
+
+        private void DisplayAction(string txt)
+        {
+            this.toolStripStatusLabelAction.Text = txt;
+            Application.DoEvents();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -76,49 +149,184 @@ namespace SQLCompare
             this.Close();
         }
 
-        private void contextMenuStripProject_Opening(object sender, CancelEventArgs e)
+        private void buttonInfo_Click(object sender, EventArgs e)
         {
-            //
+            // Info
+
+            int cntSrc = -1;
+            int cntTar = -1;
+
+            DisplayAction("Info...");
+            
+            //...
+        }
+
+        private void buttonCompare_Click(object sender, EventArgs e)
+        {
+            // Compare
+
+            DateTime startZeit;
+            DateTime endZeit;
+            TimeSpan dauer;
+            string dauerDisp;
+
+            startZeit = DateTime.Now;
+            endZeit = DateTime.Now;
+
+            dauer = endZeit.Subtract(startZeit);
+            dauer = TimeSpan.Zero;
+            //string dauerDisp = dauer.ToString("HH:mm:ss");
+            dauerDisp = new DateTime(dauer.Ticks).ToString("HH:mm:ss.ff");
+
+            int cntSrc = -1;
+            int cntTar = -1;
+
+            DisplayAction("Compare...");
+            
+            //...
+        }
+
+        private string[] GetSQL_SP_Views_List(string connStr, bool checkWithColId)
+        {
+            string[] ret = new string[0];
+            List<string> list = new List<string>();
+            List<SQLList> SQLlist = new List<SQLList>();
+
+            //...
+
+            ret = list.ToArray();
+
+            return ret;
+        }
+
+        private bool CheckConnection(string connStr)
+        {
+            bool ret = false;
+
+            //...
+
+            return ret;
+        }
+
+        private string[] GetSQLInfo(string connStr)
+        {
+            string[] ret = new string[0];
+            List<string> list = new List<string>();
+
+            //...
+
+            ret = list.ToArray();
+
+            return ret;
+        }
+
+        private string GetSQLHeader(string connStr)
+        {
+            string ret = "";
+            StringBuilder sb = new StringBuilder();
+
+            //...
+
+            ret = sb.ToString();
+
+            return ret;
+        }
+
+        private string[] GetSQLColList(string connStr, bool checkWithColId, bool checkWith_SP_View)
+        {
+            string[] ret = new string[0];
+            List<string> list = new List<string>();
+
+            //...
+
+            ret = list.ToArray();
+
+            return ret;
         }
 
         private void contextMenuStripProject_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            //
+            string clickedText = e.ClickedItem.Text;
+
+            //...
         }
 
-        private void buttonCompare_Click(object sender, EventArgs e)
+        private string GetFirstToken(string txt, string splitString)
+        {
+            string ret = txt;
+
+            string[] split = txt.Split(new string[] { splitString }, StringSplitOptions.None);
+            if (split.Length > 1)
+            {
+                ret = split[0];
+            }
+
+            return ret;
+        }
+
+        private void contextMenuStripProject_Opening(object sender, CancelEventArgs e)
         {
             //
         }
 
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            //
+            SrcTarSwap();
         }
 
         private void label2_DoubleClick(object sender, EventArgs e)
         {
-            //
+            SrcTarSwap();
         }
 
-        //private void checkBoxColId_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    //
-        //}
-
-        private void checkBoxColId_Click(object sender, EventArgs e)
+        private void radioButtonSrcSQL_CheckedChanged(object sender, EventArgs e)
         {
-            //
+            SetGUI();
+        }
+
+        private void radioButtonSrcFile_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGUI();
+        }
+
+        private void radioButtonTarSQL_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGUI();
+        }
+
+        private void radioButtonTarFile_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGUI();
         }
 
         private void labelFileSrc_DoubleClick(object sender, EventArgs e)
         {
-            //
+            // Open Src-File
+            string fullFileNameSrc = GetFileName("Src", this.checkBoxColId.Checked, this.checkBox_SP_View.Checked);
+            Process.Start("notepad.exe", fullFileNameSrc);
         }
 
         private void labelFileTar_DoubleClick(object sender, EventArgs e)
         {
-            //
+            // Open Tar-File
+            string fullFileNameTar = GetFileName("Tar", this.checkBoxColId.Checked, this.checkBox_SP_View.Checked);
+            Process.Start("notepad.exe", fullFileNameTar);
         }
+
+        private void checkBoxColId_Click(object sender, EventArgs e)
+        {
+            SetProject();
+        }
+
+        private void checkBox_SP_View_Click(object sender, EventArgs e)
+        {
+            SetProject();
+        }
+    }
+
+    public class SQLList
+    {
+        public string Name { get; set; }
+        public string Type { get; set; }
     }
 }

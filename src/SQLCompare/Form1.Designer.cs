@@ -30,6 +30,14 @@ namespace SQLCompare
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonInfo = new System.Windows.Forms.Button();
+            this.checkBox_SP_View = new System.Windows.Forms.CheckBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.radioButtonTarSQL = new System.Windows.Forms.RadioButton();
+            this.radioButtonTarFile = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButtonSrcFile = new System.Windows.Forms.RadioButton();
+            this.radioButtonSrcSQL = new System.Windows.Forms.RadioButton();
             this.labelFileTar = new System.Windows.Forms.Label();
             this.labelFileSrc = new System.Windows.Forms.Label();
             this.checkBoxSaveTar = new System.Windows.Forms.CheckBox();
@@ -47,22 +55,14 @@ namespace SQLCompare
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.radioButtonSrcFile = new System.Windows.Forms.RadioButton();
-            this.radioButtonSrcSQL = new System.Windows.Forms.RadioButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.radioButtonTarSQL = new System.Windows.Forms.RadioButton();
-            this.radioButtonTarFile = new System.Windows.Forms.RadioButton();
-            this.checkBox_SP_View = new System.Windows.Forms.CheckBox();
-            this.buttonInfo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,6 +87,89 @@ namespace SQLCompare
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(915, 87);
             this.panel1.TabIndex = 0;
+            // 
+            // buttonInfo
+            // 
+            this.buttonInfo.Location = new System.Drawing.Point(138, 21);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Size = new System.Drawing.Size(35, 23);
+            this.buttonInfo.TabIndex = 19;
+            this.buttonInfo.Text = "Info";
+            this.buttonInfo.UseVisualStyleBackColor = true;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
+            // 
+            // checkBox_SP_View
+            // 
+            this.checkBox_SP_View.AutoSize = true;
+            this.checkBox_SP_View.Location = new System.Drawing.Point(53, 53);
+            this.checkBox_SP_View.Name = "checkBox_SP_View";
+            this.checkBox_SP_View.Size = new System.Drawing.Size(75, 17);
+            this.checkBox_SP_View.TabIndex = 18;
+            this.checkBox_SP_View.Text = "+SP+View";
+            this.checkBox_SP_View.UseVisualStyleBackColor = true;
+            this.checkBox_SP_View.Click += new System.EventHandler(this.checkBox_SP_View_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.radioButtonTarSQL);
+            this.panel3.Controls.Add(this.radioButtonTarFile);
+            this.panel3.Location = new System.Drawing.Point(181, 50);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(18, 37);
+            this.panel3.TabIndex = 17;
+            // 
+            // radioButtonTarSQL
+            // 
+            this.radioButtonTarSQL.AutoSize = true;
+            this.radioButtonTarSQL.Location = new System.Drawing.Point(3, 4);
+            this.radioButtonTarSQL.Name = "radioButtonTarSQL";
+            this.radioButtonTarSQL.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonTarSQL.TabIndex = 14;
+            this.radioButtonTarSQL.TabStop = true;
+            this.radioButtonTarSQL.UseVisualStyleBackColor = true;
+            this.radioButtonTarSQL.CheckedChanged += new System.EventHandler(this.radioButtonTarSQL_CheckedChanged);
+            // 
+            // radioButtonTarFile
+            // 
+            this.radioButtonTarFile.AutoSize = true;
+            this.radioButtonTarFile.Location = new System.Drawing.Point(3, 22);
+            this.radioButtonTarFile.Name = "radioButtonTarFile";
+            this.radioButtonTarFile.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonTarFile.TabIndex = 14;
+            this.radioButtonTarFile.TabStop = true;
+            this.radioButtonTarFile.UseVisualStyleBackColor = true;
+            this.radioButtonTarFile.CheckedChanged += new System.EventHandler(this.radioButtonTarFile_CheckedChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.radioButtonSrcFile);
+            this.panel2.Controls.Add(this.radioButtonSrcSQL);
+            this.panel2.Location = new System.Drawing.Point(182, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(18, 46);
+            this.panel2.TabIndex = 16;
+            // 
+            // radioButtonSrcFile
+            // 
+            this.radioButtonSrcFile.AutoSize = true;
+            this.radioButtonSrcFile.Location = new System.Drawing.Point(3, 27);
+            this.radioButtonSrcFile.Name = "radioButtonSrcFile";
+            this.radioButtonSrcFile.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonSrcFile.TabIndex = 13;
+            this.radioButtonSrcFile.TabStop = true;
+            this.radioButtonSrcFile.UseVisualStyleBackColor = true;
+            this.radioButtonSrcFile.CheckedChanged += new System.EventHandler(this.radioButtonSrcFile_CheckedChanged);
+            // 
+            // radioButtonSrcSQL
+            // 
+            this.radioButtonSrcSQL.AutoSize = true;
+            this.radioButtonSrcSQL.Location = new System.Drawing.Point(3, 4);
+            this.radioButtonSrcSQL.Name = "radioButtonSrcSQL";
+            this.radioButtonSrcSQL.Size = new System.Drawing.Size(14, 13);
+            this.radioButtonSrcSQL.TabIndex = 13;
+            this.radioButtonSrcSQL.TabStop = true;
+            this.radioButtonSrcSQL.UseVisualStyleBackColor = true;
+            this.radioButtonSrcSQL.CheckedChanged += new System.EventHandler(this.radioButtonSrcSQL_CheckedChanged);
             // 
             // labelFileTar
             // 
@@ -252,83 +335,6 @@ namespace SQLCompare
             this.textBox2.Size = new System.Drawing.Size(118, 60);
             this.textBox2.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.radioButtonSrcFile);
-            this.panel2.Controls.Add(this.radioButtonSrcSQL);
-            this.panel2.Location = new System.Drawing.Point(182, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(18, 46);
-            this.panel2.TabIndex = 16;
-            // 
-            // radioButtonSrcFile
-            // 
-            this.radioButtonSrcFile.AutoSize = true;
-            this.radioButtonSrcFile.Location = new System.Drawing.Point(3, 27);
-            this.radioButtonSrcFile.Name = "radioButtonSrcFile";
-            this.radioButtonSrcFile.Size = new System.Drawing.Size(14, 13);
-            this.radioButtonSrcFile.TabIndex = 13;
-            this.radioButtonSrcFile.TabStop = true;
-            this.radioButtonSrcFile.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonSrcSQL
-            // 
-            this.radioButtonSrcSQL.AutoSize = true;
-            this.radioButtonSrcSQL.Location = new System.Drawing.Point(3, 4);
-            this.radioButtonSrcSQL.Name = "radioButtonSrcSQL";
-            this.radioButtonSrcSQL.Size = new System.Drawing.Size(14, 13);
-            this.radioButtonSrcSQL.TabIndex = 13;
-            this.radioButtonSrcSQL.TabStop = true;
-            this.radioButtonSrcSQL.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.radioButtonTarSQL);
-            this.panel3.Controls.Add(this.radioButtonTarFile);
-            this.panel3.Location = new System.Drawing.Point(181, 50);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(18, 37);
-            this.panel3.TabIndex = 17;
-            // 
-            // radioButtonTarSQL
-            // 
-            this.radioButtonTarSQL.AutoSize = true;
-            this.radioButtonTarSQL.Location = new System.Drawing.Point(3, 4);
-            this.radioButtonTarSQL.Name = "radioButtonTarSQL";
-            this.radioButtonTarSQL.Size = new System.Drawing.Size(14, 13);
-            this.radioButtonTarSQL.TabIndex = 14;
-            this.radioButtonTarSQL.TabStop = true;
-            this.radioButtonTarSQL.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonTarFile
-            // 
-            this.radioButtonTarFile.AutoSize = true;
-            this.radioButtonTarFile.Location = new System.Drawing.Point(3, 22);
-            this.radioButtonTarFile.Name = "radioButtonTarFile";
-            this.radioButtonTarFile.Size = new System.Drawing.Size(14, 13);
-            this.radioButtonTarFile.TabIndex = 14;
-            this.radioButtonTarFile.TabStop = true;
-            this.radioButtonTarFile.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_SP_View
-            // 
-            this.checkBox_SP_View.AutoSize = true;
-            this.checkBox_SP_View.Location = new System.Drawing.Point(53, 53);
-            this.checkBox_SP_View.Name = "checkBox_SP_View";
-            this.checkBox_SP_View.Size = new System.Drawing.Size(75, 17);
-            this.checkBox_SP_View.TabIndex = 18;
-            this.checkBox_SP_View.Text = "+SP+View";
-            this.checkBox_SP_View.UseVisualStyleBackColor = true;
-            // 
-            // buttonInfo
-            // 
-            this.buttonInfo.Location = new System.Drawing.Point(138, 21);
-            this.buttonInfo.Name = "buttonInfo";
-            this.buttonInfo.Size = new System.Drawing.Size(35, 23);
-            this.buttonInfo.TabIndex = 19;
-            this.buttonInfo.Text = "Info";
-            this.buttonInfo.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,6 +348,10 @@ namespace SQLCompare
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -350,10 +360,6 @@ namespace SQLCompare
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
