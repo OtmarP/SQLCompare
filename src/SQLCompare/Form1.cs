@@ -87,7 +87,15 @@ namespace SQLCompare
         private void SetContextMenue()
         {
             // Reset Color
-            //...
+            for (int i = 0; i < contextMenuStripProject.Items.Count; i++)
+            {
+                contextMenuStripProject.Items[i].BackColor = System.Drawing.SystemColors.Control;
+
+                if (contextMenuStripProject.Items[i].Text == _project_compair)
+                {
+                    contextMenuStripProject.Items[i].BackColor = Color.Cyan;
+                }
+            }
         }
 
         private void DisplayHeader()
