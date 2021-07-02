@@ -119,7 +119,26 @@ namespace SQLCompare
         {
             string fullFileName = "";
 
-            //...
+            string ColId = "ohneColId";
+            if (mitColId)
+            {
+                ColId = "mitColId";
+            }
+            string SP_View = "";
+            if (mit_SP_View)
+            {
+                SP_View = "mit_SP_View";
+            }
+
+            type = type.ToUpper();
+            if (type == "SRC")
+            {
+                fullFileName = System.IO.Path.Combine(Application.StartupPath, _project_project + "_Src_" + ColId + SP_View + ".txt");
+            }
+            else if (type == "TAR")
+            {
+                fullFileName = System.IO.Path.Combine(Application.StartupPath, _project_project + "_Tar_" + ColId + SP_View + ".txt");
+            }
 
             return fullFileName;
         }
