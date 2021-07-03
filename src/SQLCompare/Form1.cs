@@ -13,7 +13,7 @@ namespace SQLCompare
 {
     public partial class Form1 : Form
     {
-        private string _project_compair;    // TEST_Kunde
+        private string _project_compair;    // TEST_TestKunde
         private string _project_project;    // TEST
         private string _version;
 
@@ -24,8 +24,8 @@ namespace SQLCompare
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Version
-            //----------------------------------------------------------------------- History - letzter unten
+            // Version - History - letzter unten
+            //-----------------------------------------------------------------------
             // Mi.01.04.2014 18:20:00 -op- Cr.
             // Do.01.04.2014 09:30:00 -op- ...
             // Mi.08.04.2014 11:00:00 -op- mit Save to File, compare mit File
@@ -145,6 +145,13 @@ namespace SQLCompare
 
         private void SetProject()
         {
+            if (_project_compair == "TEST")
+            {
+                this.textBoxSrcConnStr.Text = "Data Source=localhost;Initial Catalog=Test;Persist Security Info=True;User ID=test;Password=test!";
+                //192.168.0.1
+                this.textBoxTarConnStr.Text = this.textBoxSrcConnStr.Text.Replace("localhost", "192.168.0.1");
+            }
+            
             //...
 
             DisplayFileInfo();
@@ -153,7 +160,38 @@ namespace SQLCompare
         private void DisplayFileInfo()
         {
             // Check Files
-            //...
+            this.labelFileSrc.Text = "";
+            string fullFileNameSrc = GetFileName("Src", this.checkBoxColId.Checked, this.checkBox_SP_View.Checked);
+            if (System.IO.File.Exists(fullFileNameSrc))
+            {
+                System.IO.FileInfo fiSrc = new System.IO.FileInfo(fullFileNameSrc);
+                this.labelFileSrc.Text = string.Format("{0} - {1} - {2}", fiSrc.Name, fiSrc.Length, fiSrc.LastWriteTime);
+                this.radioButtonSrcFile.Enabled = true;
+            }
+            else
+            {
+                this.radioButtonSrcFile.Enabled = false;
+                if (this.radioButtonSrcFile.Checked)
+                {
+                    this.radioButtonSrcSQL.Checked = true;
+                }
+            }
+            this.labelFileTar.Text = "";
+            string fullFileNameTar = GetFileName("Tar", this.checkBoxColId.Checked, this.checkBox_SP_View.Checked);
+            if (System.IO.File.Exists(fullFileNameTar))
+            {
+                System.IO.FileInfo fiTar = new System.IO.FileInfo(fullFileNameTar);
+                this.labelFileTar.Text = string.Format("{0} - {1} - {2}", fiTar.Name, fiTar.Length, fiTar.LastWriteTime);
+                this.radioButtonTarFile.Enabled = true;
+            }
+            else
+            {
+                this.radioButtonTarFile.Enabled = false;
+                if (this.radioButtonTarFile.Checked)
+                {
+                    this.radioButtonTarSQL.Checked = true;
+                }
+            }
         }
 
         private void SetGUI()
