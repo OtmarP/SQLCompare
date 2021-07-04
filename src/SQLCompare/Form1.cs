@@ -197,9 +197,31 @@ namespace SQLCompare
         private void SetGUI()
         {
             // Src
-            //...
+            if (this.radioButtonSrcSQL.Checked)
+            {
+                this.checkBoxSaveSrc.Enabled = true;
+                this.textBoxSrcConnStr.BackColor = Color.Cyan;
+                this.labelFileSrc.BackColor = SystemColors.Control;
+            }
+            else
+            {
+                this.checkBoxSaveSrc.Enabled = false;
+                this.textBoxSrcConnStr.BackColor = SystemColors.Window;
+                this.labelFileSrc.BackColor = Color.Cyan;
+            }
             // Tar
-            //...
+            if (this.radioButtonTarSQL.Checked)
+            {
+                this.checkBoxSaveTar.Enabled = true;
+                this.textBoxTarConnStr.BackColor = Color.Cyan;
+                this.labelFileTar.BackColor = SystemColors.Control;
+            }
+            else
+            {
+                this.checkBoxSaveTar.Enabled = false;
+                this.textBoxTarConnStr.BackColor = SystemColors.Window;
+                this.labelFileTar.BackColor = Color.Cyan;
+            }
         }
 
         private void DisplayAction(string txt)
