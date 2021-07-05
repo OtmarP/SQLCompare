@@ -244,8 +244,59 @@ namespace SQLCompare
             int cntTar = -1;
 
             DisplayAction("Info...");
-            
-            //...
+
+            string[] listSrcInfo = new string[0];
+            string[] listTarInfo = new string[0];
+
+            // Src
+            string conStrSrc = this.textBoxSrcConnStr.Text;
+            if (conStrSrc != "")
+            {
+                DisplayAction("Info, CheckConnection Src...");
+                bool connectionOK = CheckConnection(conStrSrc);
+                if (connectionOK)
+                {
+                    DisplayAction("Info, GetInfo Src...");
+                    listSrcInfo = GetSQLInfo(conStrSrc);
+
+                    cntSrc = listSrcInfo.Length;
+                }
+            }
+            // Tar
+            string conStrTar = this.textBoxTarConnStr.Text;
+            if (conStrTar != "")
+            {
+                DisplayAction("Info, CheckConnection Tar...");
+                bool connectionOK = CheckConnection(conStrTar);
+                if (connectionOK)
+                {
+                    DisplayAction("Info, GetInfoTar...");
+                    listTarInfo = GetSQLInfo(conStrTar);
+
+                    cntTar = listTarInfo.Length;
+                }
+            }
+
+            DisplayAction("Info, Display...");
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < listSrcInfo.Length; i++)
+            {
+                string valSrc = listSrcInfo[i];
+                sb.Append(valSrc);
+                sb.AppendLine();
+            }
+            textBox1.Text = sb.ToString();
+            sb.Length = 0;
+            for (int i = 0; i < listTarInfo.Length; i++)
+            {
+                string valTar = listTarInfo[i];
+                sb.Append(valTar);
+                sb.AppendLine();
+            }
+            textBox2.Text = sb.ToString();
+
+            DisplayAction(string.Format("Compare. Src:{0}, Tar:{1}", cntSrc, cntTar));
+            //DisplayAction( "Info." );
         }
 
         private void buttonCompare_Click(object sender, EventArgs e)
