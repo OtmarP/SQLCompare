@@ -320,7 +320,50 @@ namespace SQLCompare
             int cntTar = -1;
 
             DisplayAction("Compare...");
-            
+
+            bool checkWithColId = false;
+            if (checkBoxColId.Checked)
+            {
+                checkWithColId = true;
+            }
+            bool checkWith_SP_View = false;
+            if (checkBox_SP_View.Checked)
+            {
+                checkWith_SP_View = true;
+            }
+
+            string[] listSrc = new string[0];
+            string[] listSrcMit = new string[0];
+            string[] listSrcOhne = new string[0];
+            string[] listSrcSPVOhne = new string[0];
+            string[] listSrcSPVMit = new string[0];
+            string[] listTar = new string[0];
+            string[] listTarMit = new string[0];
+            string[] listTarOhne = new string[0];
+            string[] listTarSPVOhne = new string[0];
+            string[] listTarSPVMit = new string[0];
+            // Src
+            if (this.radioButtonSrcSQL.Enabled && this.radioButtonSrcSQL.Checked)
+            {
+                if (this.textBoxSrcConnStr.Text != "")
+                {
+                    DisplayAction("Compare, CheckConnection Src...");
+                    bool connectionOK = CheckConnection(this.textBoxSrcConnStr.Text);
+                    if (connectionOK)
+                    {
+                        DisplayAction("Compare, GetSQLColList Src...");
+                        //...
+                    }
+                }
+            }
+            else if (this.radioButtonSrcFile.Enabled && this.radioButtonSrcFile.Checked)
+            {
+                DisplayAction("Compare, ReadFromFile Src...");
+                string fullFileNameSrc = GetFileName("Src", checkWithColId, checkWith_SP_View);
+                listSrc = System.IO.File.ReadAllLines(fullFileNameSrc);
+                cntSrc = listSrc.Length;
+            }
+            // Tar
             //...
         }
 
