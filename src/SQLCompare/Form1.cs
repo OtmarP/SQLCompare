@@ -352,7 +352,13 @@ namespace SQLCompare
                     if (connectionOK)
                     {
                         DisplayAction("Compare, GetSQLColList Src...");
-                        //...
+                        listSrcMit = GetSQLColList(this.textBoxSrcConnStr.Text, true, checkWith_SP_View);
+                        listSrcOhne = GetSQLColList(this.textBoxSrcConnStr.Text, false, checkWith_SP_View);
+                        if (checkWith_SP_View)
+                        {
+                            // SP, Views
+                            //...
+                        }
                     }
                 }
             }
