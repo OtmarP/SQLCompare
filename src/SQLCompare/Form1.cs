@@ -357,6 +357,11 @@ namespace SQLCompare
                         if (checkWith_SP_View)
                         {
                             // SP, Views
+                            DisplayAction("Compare, GetSQL_SP_Views_List Src...");
+                            listSrcSPVMit = GetSQL_SP_Views_List(this.textBoxSrcConnStr.Text, true);
+                            listSrcSPVOhne = GetSQL_SP_Views_List(this.textBoxSrcConnStr.Text, false);
+
+                            // Concat
                             //...
                         }
                     }
