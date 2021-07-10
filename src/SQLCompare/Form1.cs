@@ -362,8 +362,22 @@ namespace SQLCompare
                             listSrcSPVOhne = GetSQL_SP_Views_List(this.textBoxSrcConnStr.Text, false);
 
                             // Concat
-                            //...
+                            string[] listSrcXM = listSrcMit.Concat(listSrcSPVMit).ToArray();
+                            string[] listSrcXO = listSrcOhne.Concat(listSrcSPVOhne).ToArray();
+                            //
+                            listSrcMit = listSrcXM.ToArray();
+                            listSrcOhne = listSrcXO.ToArray();
                         }
+
+                        if (checkWithColId)
+                        {
+                            listSrc = listSrcMit;
+                        }
+                        else
+                        {
+                            listSrc = listSrcOhne;
+                        }
+                        cntSrc = listSrc.Length;
                     }
                 }
             }
@@ -375,7 +389,27 @@ namespace SQLCompare
                 cntSrc = listSrc.Length;
             }
             // Tar
-            //...
+            if (this.radioButtonTarSQL.Enabled && this.radioButtonTarSQL.Checked)
+            {
+                if (this.textBoxTarConnStr.Text != "")
+                {
+                    DisplayAction("Compare, CheckConnection Tar...");
+                    bool connectionOK = CheckConnection(this.textBoxTarConnStr.Text);
+                    if (connectionOK)
+                    {
+                        DisplayAction("Compare, GetSQLColList Tar...");
+                        listTarMit = GetSQLColList(this.textBoxTarConnStr.Text, true, checkWith_SP_View);
+                        listTarOhne = GetSQLColList(this.textBoxTarConnStr.Text, false, checkWith_SP_View);
+                        if (checkWith_SP_View)
+                        {
+                            // SP, Views
+                            //...
+                        }
+                    }
+                    //...
+                }
+                //...
+            }
         }
 
         private string[] GetSQL_SP_Views_List(string connStr, bool checkWithColId)
