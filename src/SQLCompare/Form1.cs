@@ -403,9 +403,50 @@ namespace SQLCompare
                         if (checkWith_SP_View)
                         {
                             // SP, Views
-                            //...
+                            DisplayAction("Compare, GetSQL_SP_Views_List Tar...");
+                            listTarSPVMit = GetSQL_SP_Views_List(this.textBoxTarConnStr.Text, true);
+                            listTarSPVOhne = GetSQL_SP_Views_List(this.textBoxTarConnStr.Text, false);
+
+                            // Concat
+                            string[] listTarXM = listTarMit.Concat(listTarSPVMit).ToArray();
+                            string[] listTarXO = listTarOhne.Concat(listTarSPVOhne).ToArray();
+                            //
+                            listTarMit = listTarXM.ToArray();
+                            listTarOhne = listTarXO.ToArray();
                         }
+
+                        if (checkWithColId)
+                        {
+                            listTar = listTarMit;
+                        }
+                        else
+                        {
+                            listTar = listTarOhne;
+                        }
+                        cntTar = listTar.Length;
                     }
+                }
+            }
+            else if (this.radioButtonTarFile.Enabled && this.radioButtonTarFile.Checked)
+            {
+                DisplayAction("Compare, ReadFromFile Tar...");
+                string fullFileNameTar = GetFileName("Tar", checkWithColId, checkWith_SP_View);
+                listTar = System.IO.File.ReadAllLines(fullFileNameTar);
+                cntTar = listTar.Length;
+            }
+
+
+            DisplayAction("Save: PROJ_Src.txt, PROJ_Tar.txt...");
+            // Save: VRREH_Src.txt, VRREH_Tar.txt
+            if (checkBoxSaveSrc.Enabled && checkBoxSaveSrc.Checked)
+            {
+                if (checkWith_SP_View)
+                {
+                    // mit SP_View
+                    //...
+                }
+                else {
+                    // ohne SP_View
                     //...
                 }
                 //...
