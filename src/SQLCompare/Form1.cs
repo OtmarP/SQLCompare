@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -443,14 +443,27 @@ namespace SQLCompare
                 if (checkWith_SP_View)
                 {
                     // mit SP_View
-                    //...
+                    string fullFileNameSrcMit_SPView = GetFileName("Src", true, true);
+                    System.IO.File.WriteAllLines(fullFileNameSrcMit_SPView, listSrcMit);
+
+                    string fullFileNameSrcOhne_SPView = GetFileName("Src", false, true);
+                    System.IO.File.WriteAllLines(fullFileNameSrcOhne_SPView, listSrcOhne);
                 }
-                else {
+                else
+                {
                     // ohne SP_View
-                    //...
+                    string fullFileNameSrcMit = GetFileName("Src", true, false);
+                    System.IO.File.WriteAllLines(fullFileNameSrcMit, listSrcMit);
+
+                    string fullFileNameSrcOhne = GetFileName("Src", false, false);
+                    System.IO.File.WriteAllLines(fullFileNameSrcOhne, listSrcOhne);
                 }
+            }
+            if (checkBoxSaveTar.Enabled && checkBoxSaveTar.Checked)
+            {
                 //...
             }
+            //...
         }
 
         private string[] GetSQL_SP_Views_List(string connStr, bool checkWithColId)
