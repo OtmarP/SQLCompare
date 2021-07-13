@@ -461,8 +461,29 @@ namespace SQLCompare
             }
             if (checkBoxSaveTar.Enabled && checkBoxSaveTar.Checked)
             {
-                //...
+                if (checkWith_SP_View)
+                {
+                    // mit SP_View
+                    string fullFileNameTarMit_SPView = GetFileName("Tar", true, true);
+                    System.IO.File.WriteAllLines(fullFileNameTarMit_SPView, listTarMit);
+
+                    string fullFileNameTarOhne_SPView = GetFileName("Tar", false, true);
+                    System.IO.File.WriteAllLines(fullFileNameTarOhne_SPView, listTarOhne);
+                }
+                else
+                {
+                    // ohne SP_View
+                    string fullFileNameTarMit = GetFileName("Tar", true, false);
+                    System.IO.File.WriteAllLines(fullFileNameTarMit, listTarMit);
+
+                    string fullFileNameTarOhne = GetFileName("Tar", false, false);
+                    System.IO.File.WriteAllLines(fullFileNameTarOhne, listTarOhne);
+                }
             }
+            DisplayFileInfo();
+
+            DisplayAction("Compare, Src - Tar...");
+            // Src mit Tar
             //...
         }
 
