@@ -484,7 +484,96 @@ namespace SQLCompare
 
             DisplayAction("Compare, Src - Tar...");
             // Src mit Tar
-            //...
+            for (int i = 0; i < listSrc.Length; i++)
+            {
+                string valSrc = listSrc[i];
+
+                // search in Target
+                for (int j = 0; j < listTar.Length; j++)
+                {
+                    string valTar = listTar[j];
+
+                    if (valTar == valSrc)
+                    {
+                        listSrc[i] = "";
+                        listTar[j] = "";
+                        // =================>
+                        break;
+                    }
+                }
+            }
+            // Tag mit Src
+            for (int j = 0; j < listTar.Length; j++)
+            {
+                string valTar = listTar[j];
+
+                for (int i = 0; i < listSrc.Length; i++)
+                {
+                    string valSrc = listSrc[i];
+
+                    if (valTar == "" && valSrc == "") { }
+                    else
+                    {
+                        if (valTar == valSrc)
+                        {
+                            listSrc[i] = "";
+                            listTar[j] = "";
+                            // =================>
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //
+            // Src
+            List<string> list = new List<string>();
+            for (int i = 0; i < listSrc.Length; i++)
+            {
+                string valSrc = listSrc[i];
+                if (valSrc != "")
+                {
+                    list.Add(valSrc);
+                }
+            }
+            listSrc = list.ToArray();
+            // Tar
+            list = new List<string>();
+            for (int i = 0; i < listTar.Length; i++)
+            {
+                string valTar = listTar[i];
+                if (valTar != "")
+                {
+                    list.Add(valTar);
+                }
+            }
+            listTar = list.ToArray();
+
+            DisplayAction("Compare, Display...");
+            // Textbox
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < listSrc.Length; i++)
+            {
+                string valSrc = listSrc[i];
+                sb.Append(valSrc);
+                sb.AppendLine();
+            }
+            textBox1.Text = sb.ToString();
+            sb.Length = 0;
+            for (int i = 0; i < listTar.Length; i++)
+            {
+                string valTar = listTar[i];
+                sb.Append(valTar);
+                sb.AppendLine();
+            }
+            textBox2.Text = sb.ToString();
+
+            endZeit = DateTime.Now;
+            dauer = endZeit.Subtract(startZeit);
+            //dauerDisp = dauer.ToString( @"HH\:mm\:ss" );
+            dauerDisp = new DateTime(dauer.Ticks).ToString("HH:mm:ss.ff");
+
+            DisplayAction(string.Format("Compare. Src:{0}, Tar:{1}, Dauer: {2}", cntSrc, cntTar, dauerDisp));
         }
 
         private string[] GetSQL_SP_Views_List(string connStr, bool checkWithColId)
