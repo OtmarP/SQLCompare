@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -582,7 +583,99 @@ namespace SQLCompare
             List<string> list = new List<string>();
             List<SQLList> SQLlist = new List<SQLList>();
 
-            //...
+            string conString = connStr;
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // select _Cnt=count(1), type from sysobjects group by type order by type
+                    //-- _Cnt	type
+                    //-- 33	    D 
+                    //-- 104	F 
+                    //-- 1	    FN ++++++++++
+                    //-- 1	    IF ++++++++++
+                    //-- 5	    IT
+                    //-- 110	K 
+                    //-- 13	    P #####################
+                    //-- 45	    S 
+                    //-- 3	    SQ
+                    //-- 1	    TF ++++++++++
+                    //-- 1	    TR ++++++++++
+                    //-- 1	    TT
+                    //-- 114	U *******************
+                    //-- 3	    V #####################
+
+                    // select _Cnt=count(1), type, type_desc from sys.objects group by type, type_desc order by type, type_desc
+                    //-- _Cnt	type	type_desc
+                    //-- 33	    D 	DEFAULT_CONSTRAINT
+                    //-- 104	F 	FOREIGN_KEY_CONSTRAINT
+                    //-- 1	    FN	SQL_SCALAR_FUNCTION ++++++++++++++++++++++++++++++++++++++++
+                    //-- 1	    IF	SQL_INLINE_TABLE_VALUED_FUNCTION +++++++++++++++++++++++++++
+                    //-- 5	    IT	INTERNAL_TABLE
+                    //-- 13	    P 	SQL_STORED_PROCEDURE =======================================
+                    //-- 109	PK	PRIMARY_KEY_CONSTRAINT
+                    //-- 45	    S 	SYSTEM_TABLE
+                    //-- 3	    SQ	SERVICE_QUEUE
+                    //-- 1	    TF	SQL_TABLE_VALUED_FUNCTION ++++++++++++++++++++++++++++++++++
+                    //-- 1	    TR	SQL_TRIGGER ++++++++++++++++++++++++++++++++++++++++++++++++
+                    //-- 1	    TT	TYPE_TABLE
+                    //-- 114	U 	USER_TABLE *******************
+                    //-- 1	    UQ	UNIQUE_CONSTRAINT
+                    //-- 3	    V 	VIEW =======================================================
+
+                    string sql = "select name, type from sysobjects where type = 'P' or type = 'V' or type = 'FN' or type = 'IF' or type = 'TF' or type ='TR' order by type";
+                    // IF
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string valname = reader.GetValue(0).ToString();   //name
+                                string valtype = reader.GetValue(1).ToString();   //type
+                                SQLList sqlList = new SQLList();
+                                sqlList.Name = valname;
+                                sqlList.Type = valtype;
+                                SQLlist.Add(sqlList);
+                            }
+                        }
+                    }
+
+                    foreach (var item in SQLlist)
+                    {
+                        string SQLName = item.Name;
+                        string SQLType = item.Type;
+                        // sp_helptext sp_SepaAuftrag
+                        string sqlHelp = "sp_helptext " + SQLName;
+                        using (SqlCommand command = new SqlCommand(sqlHelp, connection))
+                        {
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                int line = 0;
+                                while (reader.Read())
+                                {
+                                    line++;
+                                    string val = reader.GetValue(0).ToString();
+
+                                    // val = "xxx\r\n" -> speicher -> einlesen -> wird "xxx<CR><LF>" !!!
+                                    val = val.Replace("\r\n", "");
+
+                                    // Type_Table_Col_Type_Length_Nullable
+                                    //string oneRow = SQLType + ",	" + SQLName + ",	" + line.ToString() + ",	" + val;
+                                    string oneRow = SQLType + ",\t" + SQLName + ",\t" + line.ToString() + ",\t" + val;
+                                    list.Add(oneRow);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.InnerException, "Error");
+                }
+            }
 
             ret = list.ToArray();
 
@@ -593,7 +686,25 @@ namespace SQLCompare
         {
             bool ret = false;
 
-            //...
+            //string conString = connStr;
+            ////conString = conString + ";Connection Timeout=5;";
+            //// Connection Timeout=2;
+            //using (SqlConnection connection = new SqlConnection(conString))
+            //{
+            //    try
+            //    {
+            //        //connection.ConnectionTimeout = 1;
+            //        connection.Open();
+
+            //        ret = true;
+
+            //        connection.Close();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("Error: " + ex.InnerException, "Error");
+            //    }
+            //}
 
             return ret;
         }
