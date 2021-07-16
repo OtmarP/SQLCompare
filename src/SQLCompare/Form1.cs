@@ -686,25 +686,25 @@ namespace SQLCompare
         {
             bool ret = false;
 
-            //string conString = connStr;
-            ////conString = conString + ";Connection Timeout=5;";
-            //// Connection Timeout=2;
-            //using (SqlConnection connection = new SqlConnection(conString))
-            //{
-            //    try
-            //    {
-            //        //connection.ConnectionTimeout = 1;
-            //        connection.Open();
+            string conString = connStr;
+            //conString = conString + ";Connection Timeout=5;";
+            // Connection Timeout=2;
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                try
+                {
+                    //connection.ConnectionTimeout = 1;
+                    connection.Open();
 
-            //        ret = true;
+                    ret = true;
 
-            //        connection.Close();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Error: " + ex.InnerException, "Error");
-            //    }
-            //}
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.InnerException, "Error");
+                }
+            }
 
             return ret;
         }
@@ -714,7 +714,22 @@ namespace SQLCompare
             string[] ret = new string[0];
             List<string> list = new List<string>();
 
-            //...
+            string conString = connStr;
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    //...
+
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.InnerException, "Error");
+                }
+            }
 
             ret = list.ToArray();
 
