@@ -888,6 +888,7 @@ namespace SQLCompare
                                 else if (valType == "P ") { cntTypeP++; }
                                 else if (valType == "D ") { cntTypeD++; }
                                 else if (valType == "F ") { cntTypeF++; }
+                                else if (valType == "IT") { cntTypeIT++; }
                                 //...
                             }
                         }
