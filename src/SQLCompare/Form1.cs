@@ -908,12 +908,9 @@ namespace SQLCompare
                     }
 
                     list.Add(string.Format("U:{0}, V:{1}, P:{2}, TR:{3}, K:{4}, D:{5}, F:{6}, IT:{7}, SQ:{8}, TT:{9}, FN:{10}, IF:{11}, TF:{12}, ?({13}):{14}, SUM={15}",
-                                            cntTypeU, cntTypeV, cntTypeP, cntTypeTR, cntTypeK, cntTypeD, cntTypeF, cntTypeIT, cntTypeSQ, cntTypeTT
-                                            , cntTypeFN, cntTypeIF, cntTypeTF
-                                            , whatTypeXXXX, cntTypeXXXX, cntType_SUM));
-
-
-                    //...
+                        cntTypeU, cntTypeV, cntTypeP, cntTypeTR, cntTypeK, cntTypeD, cntTypeF, cntTypeIT, cntTypeSQ, cntTypeTT
+                        , cntTypeFN, cntTypeIF, cntTypeTF
+                        , whatTypeXXXX, cntTypeXXXX, cntType_SUM));
 
                     connection.Close();
                 }
