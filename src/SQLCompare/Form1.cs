@@ -721,6 +721,173 @@ namespace SQLCompare
                 {
                     connection.Open();
 
+                    // connection
+                    // {System.Data.SqlClient.SqlConnection}
+                    //     base {System.Data.Common.DbConnection}: {System.Data.SqlClient.SqlConnection}
+                    //     ClientConnectionId: {f5f5612e-65d2-47bc-99ad-30423f836032}
+                    //     ConnectionString: "Data Source=localhost;     Initial Catalog=AtriumVRREH; Persist Security Info=True;User ID=jaha;Password=jaha"
+                    //     ConnectionTimeout: 15
+                    //     Credential: null
+                    //     Database: "AtriumVRREH"
+                    //     DataSource: "localhost"
+                    //     FireInfoMessageEventOnUserErrors: false
+                    //     PacketSize: 8000
+                    //     ServerVersion: "10.50.2550"
+                    //     State: Open
+                    //     StatisticsEnabled: false
+                    //     WorkstationId: "VIE-DEV007"
+
+                    var ClientConnectionId = connection.ClientConnectionId;
+                    var ConnectionString = connection.ConnectionString;
+                    var ConnectionTimeout = connection.ConnectionTimeout;
+                    var Container = connection.Container;
+                    var Credential = connection.Credential;
+                    var Database = connection.Database;
+                    var DataSource = connection.DataSource;
+                    var PacketSize = connection.PacketSize;
+                    var ServerVersion = connection.ServerVersion;
+                    var Site = connection.Site;
+                    var State = connection.State;
+                    var StatisticsEnabled = connection.StatisticsEnabled;
+                    var WorkstationId = connection.WorkstationId;
+
+                    string val = "";
+                    val = string.Format("ClientConnectionId: {0}", connection.ClientConnectionId);
+                    list.Add(val);
+                    val = string.Format("ConnectionTimeout: {0}", connection.ConnectionTimeout);
+                    list.Add(val);
+                    val = string.Format("Database: {0}", connection.Database);
+                    list.Add(val);
+                    val = string.Format("DataSource: {0}", connection.DataSource);
+                    list.Add(val);
+                    val = string.Format("PacketSize: {0}", connection.PacketSize);
+                    list.Add(val);
+                    val = string.Format("ServerVersion: {0}", connection.ServerVersion);
+                    list.Add(val);
+                    val = string.Format("StatisticsEnabled: {0}", connection.StatisticsEnabled);
+                    list.Add(val);
+                    val = string.Format("WorkstationId: {0}", connection.WorkstationId);
+                    list.Add(val);
+
+                    string sql = @"";
+
+                    list.Add("");
+
+                    sql = string.Format("sp_helpdb '{0}'", connection.Database);
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var valname = reader.GetValue(0).ToString();      // name
+                                var valdb_size = reader.GetValue(1).ToString();   // db_size
+                                var valowner = reader.GetValue(2).ToString();     // owner
+                                var valcreated = reader.GetValue(3).ToString();   // created
+                                var valstatus = reader.GetValue(4).ToString();    // status
+                                var valcompatibility_level = reader.GetValue(5).ToString();    // compatibility_level
+
+                                list.Add(string.Format("{0}, {1}, {2}, {3}, {4}, {5}", valname, valdb_size, valowner, valcreated, valstatus, valcompatibility_level));
+                            }
+                            //NextResult
+                            if (reader.NextResult())
+                            {
+                                while (reader.Read())
+                                {
+                                    var valname = reader.GetValue(0).ToString();      // name
+                                    var valfileid = reader.GetValue(1).ToString();    // fileid
+                                    var valfilename = reader.GetValue(2).ToString();  // filename
+                                    var valfilegroup = reader.GetValue(3).ToString(); // filegroup
+                                    var valsize = reader.GetValue(4).ToString();      // size
+                                    var valmaxsize = reader.GetValue(5).ToString();   // maxsize
+                                    var valgrowth = reader.GetValue(6).ToString();    // growth
+                                    var valusage = reader.GetValue(7).ToString();     // usage
+
+                                    list.Add(string.Format("{0}, {1}, {2}, {3}, {4}, {5}, {6}", valname, valfileid, valfilename, valsize, valmaxsize, valgrowth, valusage));
+                                }
+                            }
+                        }
+                    }
+
+                    list.Add("");
+
+                    sql = string.Format("select getdate(), @@VERSION, @@SERVERNAME, @@SERVICENAME, db_name(), SERVERPROPERTY('productversion'), SERVERPROPERTY ('productlevel'), SERVERPROPERTY ('edition'), @@LANGUAGE");
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                //for( int i = 0; i < reader.FieldCount; i++ ) {
+                                //    string val = reader.GetValue( i ).ToString();
+                                //    list.Add( val );
+                                //}
+                                string valgetdate = reader.GetValue(0).ToString();    // getdate
+                                string valVERSION = reader.GetValue(1).ToString();    // VERSION
+                                string valSERVERNAME = reader.GetValue(2).ToString(); // SERVERNAME
+                                string valSERVICENAME = reader.GetValue(3).ToString(); // SERVICENAME
+                                string valdb_name = reader.GetValue(4).ToString(); // db_name
+                                string valproductversion = reader.GetValue(5).ToString(); // productversion
+                                string valproductlevel = reader.GetValue(6).ToString(); // productlevel
+                                string valedition = reader.GetValue(7).ToString(); // edition
+                                string valLANGUAGE = reader.GetValue(8).ToString(); // LANGUAGE
+
+                                list.Add(string.Format("getdate(): {0}", valgetdate));
+                                list.Add(string.Format("VERSION: {0}", valVERSION));
+                                list.Add(string.Format("SERVERNAME: {0}", valSERVERNAME));
+                                list.Add(string.Format("SERVICENAME: {0}", valSERVICENAME));
+                                list.Add(string.Format("db_name(): {0}", valdb_name));
+                                list.Add(string.Format("productversion: {0}", valproductversion));
+                                list.Add(string.Format("productlevel: {0}", valproductlevel));
+                                list.Add(string.Format("edition: {0}", valedition));
+                                list.Add(string.Format("LANGUAGE: {0}", valLANGUAGE));
+                            }
+                        }
+                    }
+
+                    list.Add("");
+
+                    int cntTypeU = 0;
+                    int cntTypeV = 0;
+                    int cntTypeK = 0;
+                    int cntTypeP = 0;
+                    int cntTypeD = 0;
+                    int cntTypeF = 0;
+                    int cntTypeIT = 0;
+                    int cntTypeSQ = 0;
+                    int cntTypeTR = 0;
+                    int cntTypeTT = 0;
+                    int cntTypeFN = 0;
+                    int cntTypeIF = 0;
+                    int cntTypeTF = 0;
+                    int cntTypeXXXX = 0;
+                    string whatTypeXXXX = "";
+                    int cntType_SUM = 0;
+
+                    // Info: https://msdn.microsoft.com/en-us/library/ms177596.aspx?f=255&MSPPError=-2147217396
+                    sql = @"select * from sysobjects
+    where type in ('U', 'V', 'K', 'P', 'D', 'F', 'IT', 'SQ', 'TR', 'TT', 'FN', 'IF', 'TF')
+    order by type, name";
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                //for( int i = 0; i < reader.FieldCount; i++ ) {
+                                //    string val = reader.GetValue( i ).ToString();
+                                //    list.Add( val );
+                                //}
+                                string valName = reader.GetValue(0).ToString();   // name
+                                string valCD = reader.GetValue(9).ToString();     // crdate
+                                string valType = reader.GetValue(13).ToString();  // type
+
+                                if (valType == "U ") { cntTypeU++; }
+                                //...
+                            }
+                        }
+                    }
+
                     //...
 
                     connection.Close();
