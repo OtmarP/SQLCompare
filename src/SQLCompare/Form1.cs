@@ -900,6 +900,7 @@ namespace SQLCompare
                                     cntTypeXXXX++;
                                     whatTypeXXXX = whatTypeXXXX + ", " + valType;
                                 }
+                                cntType_SUM++;
                                 //...
                             }
                         }
