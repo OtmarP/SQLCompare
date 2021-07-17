@@ -883,6 +883,7 @@ namespace SQLCompare
                                 string valType = reader.GetValue(13).ToString();  // type
 
                                 if (valType == "U ") { cntTypeU++; }
+                                else if (valType == "V ") { cntTypeV++; }
                                 //...
                             }
                         }
