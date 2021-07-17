@@ -901,7 +901,8 @@ namespace SQLCompare
                                     whatTypeXXXX = whatTypeXXXX + ", " + valType;
                                 }
                                 cntType_SUM++;
-                                //...
+
+                                list.Add(string.Format("{0}, {1}, {2}", valType, valCD, valName));
                             }
                         }
                     }
