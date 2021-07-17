@@ -893,6 +893,13 @@ namespace SQLCompare
                                 else if (valType == "TR") { cntTypeTR++; }
                                 else if (valType == "TT") { cntTypeTT++; }
                                 else if (valType == "FN") { cntTypeFN++; }
+                                else if (valType == "IF") { cntTypeIF++; }
+                                else if (valType == "TF") { cntTypeTF++; }
+                                else
+                                {
+                                    cntTypeXXXX++;
+                                    whatTypeXXXX = whatTypeXXXX + ", " + valType;
+                                }
                                 //...
                             }
                         }
