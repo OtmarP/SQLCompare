@@ -930,6 +930,13 @@ namespace SQLCompare
             string ret = "";
             StringBuilder sb = new StringBuilder();
 
+            string conString = connStr;
+
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+
+            }
+
             //...
 
             ret = sb.ToString();
