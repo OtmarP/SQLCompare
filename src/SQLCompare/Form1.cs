@@ -931,13 +931,53 @@ namespace SQLCompare
             StringBuilder sb = new StringBuilder();
 
             string conString = connStr;
-
             using (SqlConnection connection = new SqlConnection(conString))
             {
+                try
+                {
+                    connection.Open();
 
+                    var ConnectionString = connection.ConnectionString; // ConnectionString: "Data Source=localhost;     Initial Catalog=AtriumVRREH; Persist Security Info=True;User ID=jaha;Password=jaha"
+                    var Database = connection.Database; // Database: "AtriumVRREH"
+                    var DataSource = connection.DataSource; // DataSource: "localhost"
+                    var ServerVersion = connection.ServerVersion;   //ServerVersion: "10.50.2550"
+
+                    string sql = @"";
+                    sql = string.Format("select getdate(), @@VERSION, @@SERVERNAME, @@SERVICENAME, db_name(), SERVERPROPERTY('productversion'), SERVERPROPERTY ('productlevel'), SERVERPROPERTY ('edition'), @@LANGUAGE");
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string valgetdate = reader.GetValue(0).ToString();    // getdate
+                                string valVERSION = reader.GetValue(1).ToString();    // VERSION
+                                string valSERVERNAME = reader.GetValue(2).ToString(); // SERVERNAME
+                                string valSERVICENAME = reader.GetValue(3).ToString(); // SERVICENAME
+                                string valdb_name = reader.GetValue(4).ToString(); // db_name
+                                string valproductversion = reader.GetValue(5).ToString(); // productversion
+                                string valproductlevel = reader.GetValue(6).ToString(); // productlevel
+                                string valedition = reader.GetValue(7).ToString(); // edition
+                                string valLANGUAGE = reader.GetValue(8).ToString(); // LANGUAGE
+
+                                sb.AppendFormat("getdate(): {0}", valgetdate);
+                                sb.AppendFormat(", VERSION: {0}", valVERSION);
+                                sb.AppendFormat(", SERVERNAME: {0}", valSERVERNAME);
+                                sb.AppendFormat(", SERVICENAME: {0}", valSERVICENAME);
+                                sb.AppendFormat(", db_name(): {0}", valdb_name);
+                                sb.AppendFormat(", productversion: {0}", valproductversion);
+                                sb.AppendFormat(", productlevel: {0}", valproductlevel);
+                                sb.AppendFormat(", edition: {0}", valedition);
+                                sb.AppendFormat(", LANGUAGE: {0}", valLANGUAGE);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.InnerException, "Error");
+                }
             }
-
-            //...
 
             ret = sb.ToString();
 
