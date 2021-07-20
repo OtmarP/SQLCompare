@@ -989,7 +989,34 @@ namespace SQLCompare
             string[] ret = new string[0];
             List<string> list = new List<string>();
 
-            //...
+            string conString = connStr;
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // 
+                    string SQLInfo = "";
+                    SQLInfo = "SQL-Info: " + GetSQLHeader(connStr);
+                    SQLInfo = SQLInfo.Replace("\r\n", "");
+                    SQLInfo = SQLInfo.Replace("\n", "");
+                    SQLInfo = SQLInfo.Replace("\r", "");
+                    list.Add(SQLInfo);
+
+                    char _TAB = (char)9;
+                    string TAB = _TAB.ToString();
+
+                    string withSP_View = "";
+                    //...
+
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.InnerException, "Error");
+                }
+            }
 
             ret = list.ToArray();
 
