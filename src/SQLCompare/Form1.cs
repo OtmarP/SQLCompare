@@ -1008,6 +1008,14 @@ namespace SQLCompare
                     string TAB = _TAB.ToString();
 
                     string withSP_View = "";
+                    if (checkWith_SP_View)
+                    {
+                        //withSP_View = "Type_Table_Col_Type_Length_Nullable='U,	' + ";
+                        withSP_View = "Type_Table_Col_Type_Length_Nullable='U," + TAB + "' + ";
+                    }
+
+                    // alle User-Tables
+                    // ohne column_id
                     //...
 
                     connection.Close();
