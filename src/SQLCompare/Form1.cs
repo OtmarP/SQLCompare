@@ -1016,6 +1016,15 @@ namespace SQLCompare
 
                     // alle User-Tables
                     // ohne column_id
+                    string sql = @"select 
+    " + withSP_View + @" sys.objects.name + '," + TAB + @"' 
+    + sys.columns.name + '," + TAB + @"' + sys.types.name + '," + TAB + @"' + convert(nvarchar(50), sys.columns.max_length) + '," + TAB + @"' + convert(nvarchar(50), sys.columns.is_nullable)
+    from sys.columns
+        left join sys.objects on (sys.objects.object_id=sys.columns.object_id)
+        left join sys.types on (sys.types.user_type_id=sys.columns.system_type_id)
+    where sys.objects.type='U'
+    order by sys.objects.name, sys.columns.name";
+                    // mit column_id
                     //...
 
                     connection.Close();
