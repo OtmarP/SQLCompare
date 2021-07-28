@@ -1073,6 +1073,8 @@ namespace SQLCompare
             _project_project = GetFirstToken(_project_compair, "_"); // SWK, SWK_153, SWK_137_153 ==> "SWK"
 
             SetProject();
+            DisplayHeader();
+
             //...
         }
 
