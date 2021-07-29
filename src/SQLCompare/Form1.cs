@@ -1075,6 +1075,7 @@ namespace SQLCompare
             SetProject();
             DisplayHeader();
 
+            // Reset Color
             //...
         }
 
