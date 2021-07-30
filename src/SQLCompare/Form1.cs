@@ -1076,7 +1076,10 @@ namespace SQLCompare
             DisplayHeader();
 
             // Reset Color
-            //...
+            for (int i = 0; i < contextMenuStripProject.Items.Count; i++)
+            {
+                //...
+            }
         }
 
         private string GetFirstToken(string txt, string splitString)
