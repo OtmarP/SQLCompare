@@ -1078,8 +1078,9 @@ namespace SQLCompare
             // Reset Color
             for (int i = 0; i < contextMenuStripProject.Items.Count; i++)
             {
-                //...
+                contextMenuStripProject.Items[i].BackColor = System.Drawing.SystemColors.Control;
             }
+            //...
         }
 
         private string GetFirstToken(string txt, string splitString)
