@@ -1080,6 +1080,7 @@ namespace SQLCompare
             {
                 contextMenuStripProject.Items[i].BackColor = System.Drawing.SystemColors.Control;
             }
+            // Set Color
             //...
         }
 
