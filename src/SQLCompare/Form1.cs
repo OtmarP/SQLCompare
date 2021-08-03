@@ -1081,7 +1081,7 @@ namespace SQLCompare
                 contextMenuStripProject.Items[i].BackColor = System.Drawing.SystemColors.Control;
             }
             // Set Color
-            //...
+            e.ClickedItem.BackColor = Color.Cyan;
         }
 
         private string GetFirstToken(string txt, string splitString)
