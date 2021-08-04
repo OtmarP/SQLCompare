@@ -90,10 +90,10 @@ namespace SQLCompare
             // 
             // buttonInfo
             // 
-            this.buttonInfo.Location = new System.Drawing.Point(138, 21);
+            this.buttonInfo.Location = new System.Drawing.Point(134, 21);
             this.buttonInfo.Name = "buttonInfo";
             this.buttonInfo.Size = new System.Drawing.Size(35, 23);
-            this.buttonInfo.TabIndex = 19;
+            this.buttonInfo.TabIndex = 18;
             this.buttonInfo.Text = "Info";
             this.buttonInfo.UseVisualStyleBackColor = true;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
@@ -101,10 +101,10 @@ namespace SQLCompare
             // checkBox_SP_View
             // 
             this.checkBox_SP_View.AutoSize = true;
-            this.checkBox_SP_View.Location = new System.Drawing.Point(53, 53);
+            this.checkBox_SP_View.Location = new System.Drawing.Point(53, 51);
             this.checkBox_SP_View.Name = "checkBox_SP_View";
             this.checkBox_SP_View.Size = new System.Drawing.Size(75, 17);
-            this.checkBox_SP_View.TabIndex = 18;
+            this.checkBox_SP_View.TabIndex = 17;
             this.checkBox_SP_View.Text = "+SP+View";
             this.checkBox_SP_View.UseVisualStyleBackColor = true;
             this.checkBox_SP_View.Click += new System.EventHandler(this.checkBox_SP_View_Click);
