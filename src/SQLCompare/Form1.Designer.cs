@@ -113,10 +113,10 @@ namespace SQLCompare
             // 
             this.panel3.Controls.Add(this.radioButtonTarSQL);
             this.panel3.Controls.Add(this.radioButtonTarFile);
-            this.panel3.Location = new System.Drawing.Point(181, 50);
+            this.panel3.Location = new System.Drawing.Point(179, 47);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(18, 37);
-            this.panel3.TabIndex = 17;
+            this.panel3.TabIndex = 16;
             // 
             // radioButtonTarSQL
             // 
