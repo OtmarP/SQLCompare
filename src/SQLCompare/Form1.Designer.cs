@@ -144,10 +144,10 @@ namespace SQLCompare
             // 
             this.panel2.Controls.Add(this.radioButtonSrcFile);
             this.panel2.Controls.Add(this.radioButtonSrcSQL);
-            this.panel2.Location = new System.Drawing.Point(182, 3);
+            this.panel2.Location = new System.Drawing.Point(179, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(18, 46);
-            this.panel2.TabIndex = 16;
+            this.panel2.TabIndex = 15;
             // 
             // radioButtonSrcFile
             // 
