@@ -177,7 +177,7 @@ namespace SQLCompare
             this.labelFileTar.Location = new System.Drawing.Point(203, 69);
             this.labelFileTar.Name = "labelFileTar";
             this.labelFileTar.Size = new System.Drawing.Size(61, 13);
-            this.labelFileTar.TabIndex = 11;
+            this.labelFileTar.TabIndex = 12;
             this.labelFileTar.Text = "labelFileTar";
             this.labelFileTar.DoubleClick += new System.EventHandler(this.labelFileTar_DoubleClick);
             // 
