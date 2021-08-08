@@ -187,7 +187,7 @@ namespace SQLCompare
             this.labelFileSrc.Location = new System.Drawing.Point(203, 26);
             this.labelFileSrc.Name = "labelFileSrc";
             this.labelFileSrc.Size = new System.Drawing.Size(61, 13);
-            this.labelFileSrc.TabIndex = 10;
+            this.labelFileSrc.TabIndex = 11;
             this.labelFileSrc.Text = "labelFileSrc";
             this.labelFileSrc.DoubleClick += new System.EventHandler(this.labelFileSrc_DoubleClick);
             // 
