@@ -197,7 +197,7 @@ namespace SQLCompare
             this.checkBoxSaveTar.Location = new System.Drawing.Point(769, 46);
             this.checkBoxSaveTar.Name = "checkBoxSaveTar";
             this.checkBoxSaveTar.Size = new System.Drawing.Size(51, 17);
-            this.checkBoxSaveTar.TabIndex = 9;
+            this.checkBoxSaveTar.TabIndex = 10;
             this.checkBoxSaveTar.Text = "Save";
             this.checkBoxSaveTar.UseVisualStyleBackColor = true;
             // 
