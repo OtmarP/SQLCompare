@@ -207,7 +207,7 @@ namespace SQLCompare
             this.checkBoxSaveSrc.Location = new System.Drawing.Point(769, 6);
             this.checkBoxSaveSrc.Name = "checkBoxSaveSrc";
             this.checkBoxSaveSrc.Size = new System.Drawing.Size(51, 17);
-            this.checkBoxSaveSrc.TabIndex = 8;
+            this.checkBoxSaveSrc.TabIndex = 9;
             this.checkBoxSaveSrc.Text = "Save";
             this.checkBoxSaveSrc.UseVisualStyleBackColor = true;
             // 
