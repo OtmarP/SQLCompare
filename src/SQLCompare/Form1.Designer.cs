@@ -214,7 +214,7 @@ namespace SQLCompare
             // checkBoxColId
             // 
             this.checkBoxColId.AutoSize = true;
-            this.checkBoxColId.Location = new System.Drawing.Point(53, 34);
+            this.checkBoxColId.Location = new System.Drawing.Point(53, 32);
             this.checkBoxColId.Name = "checkBoxColId";
             this.checkBoxColId.Size = new System.Drawing.Size(69, 17);
             this.checkBoxColId.TabIndex = 7;
