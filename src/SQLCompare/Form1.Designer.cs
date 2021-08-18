@@ -328,7 +328,7 @@ namespace SQLCompare
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(16, 22);
+            this.textBox2.Location = new System.Drawing.Point(16, 14);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
