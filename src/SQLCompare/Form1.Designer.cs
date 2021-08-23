@@ -303,7 +303,7 @@ namespace SQLCompare
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 106);
+            this.splitContainer1.Location = new System.Drawing.Point(13, 106);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
