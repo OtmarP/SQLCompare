@@ -285,6 +285,15 @@ namespace SQLCompare
             this.textBoxSrcConnStr.Size = new System.Drawing.Size(560, 20);
             this.textBoxSrcConnStr.TabIndex = 0;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 14);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(373, 276);
+            this.textBox1.TabIndex = 0;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -316,15 +325,6 @@ namespace SQLCompare
             this.splitContainer1.Size = new System.Drawing.Size(878, 351);
             this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 14);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(373, 276);
-            this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
