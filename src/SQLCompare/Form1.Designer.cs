@@ -294,6 +294,20 @@ namespace SQLCompare
             this.textBox1.Size = new System.Drawing.Size(373, 276);
             this.textBox1.TabIndex = 0;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(16, 14);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(390, 276);
+            this.textBox2.TabIndex = 0;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Location = new System.Drawing.Point(13, 106);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -310,11 +324,6 @@ namespace SQLCompare
             this.toolStripStatusLabelAction.Size = new System.Drawing.Size(16, 17);
             this.toolStripStatusLabelAction.Text = "...";
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Location = new System.Drawing.Point(13, 106);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
@@ -325,15 +334,6 @@ namespace SQLCompare
             this.splitContainer1.Size = new System.Drawing.Size(878, 351);
             this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(16, 14);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(390, 276);
-            this.textBox2.TabIndex = 0;
             // 
             // Form1
             // 
