@@ -305,7 +305,7 @@ namespace SQLCompare
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(13, 106);
+            this.splitContainer1.Location = new System.Drawing.Point(13, 111);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // statusStrip1
