@@ -312,6 +312,13 @@ namespace SQLCompare
             // 
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Size = new System.Drawing.Size(878, 351);
+            this.splitContainer1.SplitterDistance = 417;
+            this.splitContainer1.TabIndex = 2;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -327,13 +334,6 @@ namespace SQLCompare
             this.toolStripStatusLabelAction.Name = "toolStripStatusLabelAction";
             this.toolStripStatusLabelAction.Size = new System.Drawing.Size(16, 17);
             this.toolStripStatusLabelAction.Text = "...";
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(878, 351);
-            this.splitContainer1.SplitterDistance = 417;
-            this.splitContainer1.TabIndex = 2;
             // 
             // Form1
             // 
