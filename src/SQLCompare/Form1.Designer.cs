@@ -315,7 +315,7 @@ namespace SQLCompare
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(878, 351);
+            this.splitContainer1.Size = new System.Drawing.Size(890, 351);
             this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.TabIndex = 2;
             // 
