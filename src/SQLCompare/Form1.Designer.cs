@@ -384,6 +384,7 @@ namespace SQLCompare
         private System.Windows.Forms.Label labelFileTar;
         private System.Windows.Forms.Label labelFileSrc;
         private System.Windows.Forms.RadioButton radioButtonSrcFile;
+        private System.Windows.Forms.RadioButton radioButtonSrcSQL;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelAction;
         private System.Windows.Forms.Button buttonInfo;
@@ -392,6 +393,5 @@ namespace SQLCompare
         private System.Windows.Forms.RadioButton radioButtonTarSQL;
         private System.Windows.Forms.RadioButton radioButtonTarFile;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton radioButtonSrcSQL;
     }
 }
