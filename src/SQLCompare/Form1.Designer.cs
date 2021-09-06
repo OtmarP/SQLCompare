@@ -386,12 +386,12 @@ namespace SQLCompare
         private System.Windows.Forms.RadioButton radioButtonSrcFile;
         private System.Windows.Forms.RadioButton radioButtonSrcSQL;
         private System.Windows.Forms.RadioButton radioButtonTarFile;
+        private System.Windows.Forms.RadioButton radioButtonTarSQL;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelAction;
         private System.Windows.Forms.Button buttonInfo;
         private System.Windows.Forms.CheckBox checkBox_SP_View;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton radioButtonTarSQL;
         private System.Windows.Forms.Panel panel2;
     }
 }
