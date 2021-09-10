@@ -395,3 +395,4 @@ namespace SQLCompare
         private System.Windows.Forms.Button buttonInfo;
     }
 }
+
