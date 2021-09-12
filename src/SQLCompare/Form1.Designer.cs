@@ -301,7 +301,7 @@ namespace SQLCompare
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox2.Size = new System.Drawing.Size(390, 276);
-            this.textBox2.TabIndex = 0;
+            this.textBox2.TabIndex = 4;
             // 
             // splitContainer1
             // 
