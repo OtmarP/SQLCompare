@@ -317,7 +317,7 @@ namespace SQLCompare
             this.splitContainer1.Panel2.Controls.Add(this.textBox2);
             this.splitContainer1.Size = new System.Drawing.Size(890, 357);
             this.splitContainer1.SplitterDistance = 427;
-            this.splitContainer1.TabIndex = 2;
+            this.splitContainer1.TabIndex = 5;
             // 
             // statusStrip1
             // 
