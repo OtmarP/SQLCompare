@@ -1,4 +1,4 @@
-namespace SQLCompare
+﻿namespace SQLCompare
 {
     partial class Form1
     {
