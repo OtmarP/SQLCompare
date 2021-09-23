@@ -153,7 +153,7 @@ namespace SQLCompare
                 this.textBoxTarConnStr.Text = this.textBoxSrcConnStr.Text.Replace("localhost", "192.168.0.1");
             }
             
-            // Read from Config-File......
+            // Read from Config-File.......
 
             DisplayFileInfo();
         }
