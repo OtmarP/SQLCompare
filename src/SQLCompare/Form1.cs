@@ -21,6 +21,8 @@ namespace SQLCompare
         public Form1()
         {
             InitializeComponent();
+
+            // Read from Config-File...
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -70,6 +72,7 @@ namespace SQLCompare
 
             contextMenuStripProject.Items.Clear();
             contextMenuStripProject.Items.Add("TEST");
+            // Display from Config-File...
             //...
             //contextMenuStripProject.Items.Add( "" );
             SetContextMenue();  // .BackColor = Color.Cyan
@@ -153,7 +156,7 @@ namespace SQLCompare
                 this.textBoxTarConnStr.Text = this.textBoxSrcConnStr.Text.Replace("localhost", "192.168.0.1");
             }
             
-            // Read from Config-File.......
+            // Display from Config-File.......
 
             DisplayFileInfo();
         }
