@@ -156,7 +156,7 @@ namespace SQLCompare
                 this.textBoxTarConnStr.Text = this.textBoxSrcConnStr.Text.Replace("localhost", "192.168.0.1");
             }
             
-            // Display from Config-File.......
+            // Display from Config-File...
 
             DisplayFileInfo();
         }
