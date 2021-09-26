@@ -22,7 +22,7 @@ namespace SQLCompare
         {
             InitializeComponent();
 
-            // Read from Config-File...
+            // Read from Config-File....
         }
 
         private void Form1_Load(object sender, EventArgs e)
